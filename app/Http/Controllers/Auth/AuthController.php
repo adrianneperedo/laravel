@@ -23,6 +23,8 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+    protected $loginPath = 'users/login';
+
     /**
      * Create a new authentication controller instance.
      *
@@ -62,4 +64,6 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+
 }
