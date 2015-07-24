@@ -17,6 +17,7 @@ Route::get('/home', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'TicketsController@create');
 Route::get('/tickets', 'TicketsController@index');
+
 Route::get('/ticket/{slug}', 'TicketsController@show');
 Route::get('/ticket/{slug}/edit', 'TicketsController@edit');
 Route::get('users/register', 'Auth\AuthController@getRegister');
