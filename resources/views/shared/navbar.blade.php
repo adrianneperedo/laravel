@@ -15,13 +15,15 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="/">Home</a></li>
+                <li><a href="/blogs">Blog</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Member <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         @if (Auth::check())
-                            <li><a href="/tickets">Tickets</a></li>
+                            <li><a href="/blog/create">Create a blog</a></li>
+                            <li><a href="/tickets">View Tickets</a></li>
                             <li><a href="/users/logout">Logout</a></li>
                         @else
                             <li><a href="/users/register">Register</a></li>

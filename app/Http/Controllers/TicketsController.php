@@ -14,14 +14,14 @@ class TicketsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['only' => ['index, show, edit, update, redirect']]);
     }
 
     public function index()
     {
         $tickets = Ticket::all();
 
-        return view('tickets.index')->with('tickets', $tickets);
+        return view('tickets.index', compact('tickets'));
     }
 
     public function create()
@@ -33,16 +33,17 @@ class TicketsController extends Controller
     {
         $slug = uniqid();
 
-        $ticket = new Ticket(array(
+        $ticket = new Ticket([
             'title' => $request->get('title'),
             'content' => $request->get('content'),
             'slug' => $slug
-        ));
+        ]);
 
         $ticket->save();
 
         /*-----------------------------------------------------------------------
-        Uncomment and add your email address to use mail function
+        Uncomment and add your email address to use mail function.
+        Note: Use '.env.email' as your '.env'
         -------------------------------------------------------------------------
         $data = array(
             'ticket' => $slug
